@@ -16,6 +16,7 @@ def getConfigJson(configName):
     return jsonStr
 
 def writeini(appconfigdir,data):
+    print(data)
     configini = configparser.ConfigParser() # 类实例化
     for section in data:
         configini.add_section(section) # 首先添加一个新的section
@@ -34,20 +35,20 @@ class myThread(threading.Thread):
     def run(self):
         cwd, cmd, f = self.args
         self.state = True
-        print(f)
         while True:
-            print(self.getpid(),os.getppid())
             try:
                 res = subprocess.Popen(cmd, shell=True, stdout=f,
                                     stderr=subprocess.STDOUT, cwd=cwd)
-                # print(cwd, cmd, f, sleeptime)
-                if self.signal:
-                    time.sleep(2)
-                else:
-                    os.system("taskkill /t /f /pid %s" % res.pid)
-                    res.kill()
-                    res.wait()
-                    break
+                print(f)
+                while True:
+                    if self.signal:
+                        time.sleep(2)
+                    else:
+                        os.system("kill -9 %s" % res.pid)
+                        res.kill()
+                        res.wait()
+                        break
+                break
             except Exception as e:
                 print(e)
         self.state = False

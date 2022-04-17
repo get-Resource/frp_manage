@@ -12,7 +12,7 @@ mv ./frp_manage/frp_0.41.0_linux_amd64/* ./frp_manage/
 cd ./frp_manage/
 pip install -r requirements.txt
 # 
-按照https://gofrp.org/docs/规范修改frp_config.yaml
+
 sh start.sh
 或
 sh restart.sh
@@ -28,7 +28,7 @@ mv ./frp_manage/frp_0.41.0_linux_amd64/* ./frp_manage/
 cd ./frp_manage/
 pip install -r requirements.txt
 ```
- 2. pip install -r requirements.txt
+ 2. 按照 https://gofrp.org/docs/ 规范修改 frp_config.yaml
  3. 执行下面命令使其加载服务并启动
 ```
 sudo cp ./frp_manage.service /etc/systemd/system/frp_manage.service #复制服务文件

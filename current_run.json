@@ -1,0 +1,8 @@
+{
+    "ssh_53": {
+        "type": "frps",
+        "pid": 8075,
+        "config": "/root/nat_traverse/frp_manage/frp_apps/frps/ssh_53.ini",
+        "md5": "fda40a74e03b23fde44f649d35200ce7"
+    }
+}

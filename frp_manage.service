@@ -1,0 +1,15 @@
+[Unit]
+Description=transponder 管理
+After=syslog.target network.target
+Wants=network.target
+
+
+[Service]
+WorkingDirectory=/root/nat_traverse/transponder
+ExecStart=/usr/bin/python /root/nat_traverse/frp_manage/frp_manage.py //必须使用绝对路径
+Type=simple
+Restart= always
+RestartSec=1min
+
+[Install]
+WantedBy=multi-user.target
